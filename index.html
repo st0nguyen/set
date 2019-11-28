@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    class mySet{
+        constructor (){
+            this.collection = [];
+        }
+
+    has(element) {    
+        return (this.collection.indexOf(element) !== -1);  
+    }
+    add(element) {    
+        if (!this.has(element)) {      
+            for(let i = 0; i < this.collection.length ; i++){
+                if(this.collection[i] == null){
+                    this.collection.splice(i, 1, element);
+                    return true;
+                }
+            }
+            this.collection.push(element);      
+            return true;    
+        }    
+        return false;  
+    }  
+    remove(element) {    
+        if (this.has(element)) {      
+           let index = this.collection.indexOf(element);      
+            this.collection.splice(index, 1, null);
+        
+            return true;    
+        }    
+        return false;  
+    }  
+
+    }
+    let student = new mySet();
+student.add(1);
+student.add(3);
+student.add(24);
+student.add(4);
+student.add(1);
+student.remove(3);
+student.remove(4);
+student.add(5);
+student.add(8);
+
+console.log(student);
+    </script>
+</body>
+</html>
